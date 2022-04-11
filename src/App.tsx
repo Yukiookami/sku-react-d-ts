@@ -1,12 +1,25 @@
+/*
+ * @Author: zxy
+ * @Date: 2022-04-11 14:33:08
+ * @LastEditTime: 2022-04-11 15:27:19
+ * @FilePath: /sku-react-d/src/App.tsx
+ */
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <h1>Hello world</h1>
+        <h2>Hello world</h2>
+        <h3>Hello world</h3>
+        <h4>Hello world</h4>
+        <h5>Hello world</h5>
+
+        <code>
+          const a = b
+        </code>
+
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>

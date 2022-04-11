@@ -1,6 +1,12 @@
+/*
+ * @Author: zxy
+ * @Date: 2022-04-11 14:33:08
+ * @LastEditTime: 2022-04-11 15:18:11
+ * @FilePath: /sku-react-d/src/index.tsx
+ */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './styles/index.scss'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
