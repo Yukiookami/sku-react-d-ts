@@ -1,0 +1,77 @@
+.sku-alert {
+  position: relative;
+  padding: $alert-padding-y $alert-padding-x;
+  margin-bottom: $alert-margin-bottom;
+  border: $alert-border-width solid transparent;
+  border-radius: $alert-border-radius;
+  max-width: 400px;
+  opacity: 1;
+  visibility: visible;
+
+  .sku-alert-top-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .sku-bold-title {
+    font-weight: $font-weight-bold;
+  }
+
+  .sku-bold-des {
+    font-weight: $font-weight-light;
+    font-size: $font-size-sm;
+  }
+
+  .sku-alert-close {
+    position: relative;
+    cursor: pointer;
+  
+    &::before,
+    &::after {
+      position: absolute;
+      content: ' ';
+      background-color: $white;
+      top: -7px;
+      width: 2px;
+      border-radius: 2px;
+      height: 15px;
+    }
+    
+    &::before {
+      transform: rotate(45deg);
+    }
+    
+    &::after {
+      transform: rotate(-45deg);
+    }
+
+  }
+}
+
+.sku-hide-alert {
+  opacity: 0;
+  transition: all .3s ease-in-out;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.sku-rel-hide {
+  display: none;
+}
+
+.sku-alert-suc {
+  @include alert-style($white, $success, darken($success, 5%))
+}
+
+.sku-alert-def {
+  @include alert-style($white, $primary, darken($primary, 5%))
+}
+
+.sku-alert-dan {
+  @include alert-style($white, $danger, darken($danger, 5%))
+}
+
+.sku-alert-warn {
+  @include alert-style($white, $warning, darken($warning, 5%))
+}
