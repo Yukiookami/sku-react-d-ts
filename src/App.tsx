@@ -1,7 +1,7 @@
 /*
  * @Author: zxy
  * @Date: 2022-04-11 14:33:08
- * @LastEditTime: 2022-04-13 16:43:44
+ * @LastEditTime: 2022-04-13 16:47:38
  * @FilePath: /sku-react-d/src/App.tsx
  */
 import React from 'react';
@@ -29,7 +29,7 @@ function App() {
 
           <SkuButton btnType={ButtonType.Link} href="www.bilibili.com" disabled>Link Button disabled</SkuButton>
         </div>
-
+        <br></br>
         <div>
           <SkuAlert title='test Alert'></SkuAlert>
 

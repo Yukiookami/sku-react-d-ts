@@ -1,7 +1,7 @@
 /*
  * @Author: zxy
  * @Date: 2022-04-13 14:59:40
- * @LastEditTime: 2022-04-13 16:42:45
+ * @LastEditTime: 2022-04-13 16:47:22
  * @FilePath: /sku-react-d/src/components/Alert/alert.tsx
  */
 import React, { useState } from "react";
@@ -43,7 +43,8 @@ const SkuAlert: React.FC<BaseAlertProps> = (props) => {
   })
 
   const titleClass = classNames('sku-alert-title', {
-    'sku-bold-title': description
+    'sku-bold-title': description,
+    'sku-bold-des': !description
   })
 
   const handleClose = () => {
