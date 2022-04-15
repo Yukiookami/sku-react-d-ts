@@ -1,18 +1,13 @@
 /*
  * @Author: zxy
  * @Date: 2022-04-13 14:59:40
- * @LastEditTime: 2022-04-13 16:47:22
+ * @LastEditTime: 2022-04-15 16:33:44
  * @FilePath: /sku-react-d/src/components/Alert/alert.tsx
  */
 import React, { useState } from "react";
 import classNames from "classnames";
 
-export enum AlertType {
-  success = 'suc',
-  default = 'def',
-  danger = 'dan',
-  warning = 'warn'
-}
+type AlertType = 'suc' | 'def' | 'dan' | 'warn'
 
 interface BaseAlertProps {
   title: string,
@@ -74,7 +69,7 @@ const SkuAlert: React.FC<BaseAlertProps> = (props) => {
 }
 
 SkuAlert.defaultProps = {
-  type: AlertType.default,
+  type: 'def',
   closeble: true
 }
 

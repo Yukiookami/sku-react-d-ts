@@ -1,23 +1,14 @@
 /*
  * @Author: zxy
  * @Date: 2022-04-12 13:48:03
- * @LastEditTime: 2022-04-12 19:20:36
+ * @LastEditTime: 2022-04-15 16:31:35
  * @FilePath: /sku-react-d/src/components/Button/button.tsx
  */
 import React from "react";
 import classNames from 'classnames'
 
-export enum ButtonSize {
-  Large = 'lg',
-  Small = 'sm'
-}
-
-export enum ButtonType {
-  Primary = 'primary',
-  Default = 'default',
-  Danger = 'danger',
-  Link = 'link'
-}
+type ButtonSize = 'lg' | 'sm'
+type ButtonType = 'primary' | 'default' | 'danger' | 'link'
 
 interface BaseBttonProps {
   className?: string,
@@ -48,10 +39,10 @@ const SkuButton: React.FC<ButtonProps> = (props) => {
   const classes = classNames('btn', className, {
     [`btn-${btnType}`]: btnType,
     [`btn-${size}`]: size,
-    'disabled': (btnType === ButtonType.Link) && disabled
+    'disabled': (btnType === 'link') && disabled
   })
 
-  if (btnType === ButtonType.Link && href) {
+  if (btnType === 'link' && href) {
     return (
       <a 
         className={classes}
@@ -72,7 +63,7 @@ const SkuButton: React.FC<ButtonProps> = (props) => {
 
 SkuButton.defaultProps = {
   disabled: false,
-  btnType: ButtonType.Default
+  btnType: 'default'
 }
 
 export default SkuButton

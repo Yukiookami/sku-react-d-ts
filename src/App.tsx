@@ -1,12 +1,12 @@
 /*
  * @Author: zxy
  * @Date: 2022-04-11 14:33:08
- * @LastEditTime: 2022-04-13 16:47:38
+ * @LastEditTime: 2022-04-15 16:42:53
  * @FilePath: /sku-react-d/src/App.tsx
  */
 import React from 'react';
-import SkuButton, { ButtonType, ButtonSize } from './components/Button/button';
-import SkuAlert, { AlertType } from './components/Alert/alert';
+import SkuButton from './components/Button/button';
+import SkuAlert from './components/Alert/alert';
 
 function App() {
   return (
@@ -17,17 +17,17 @@ function App() {
 
           <SkuButton disabled>Disabled Button</SkuButton>
 
-          <SkuButton size={ButtonSize.Large}>Large Button</SkuButton>
+          <SkuButton size={'lg'}>Large Button</SkuButton>
 
-          <SkuButton size={ButtonSize.Small}>Small Button</SkuButton>
+          <SkuButton size={'sm'}>Small Button</SkuButton>
 
-          <SkuButton btnType={ButtonType.Primary}>Primary Button</SkuButton>
+          <SkuButton btnType={'primary'}>Primary Button</SkuButton>
 
-          <SkuButton btnType={ButtonType.Danger}>Danger Button</SkuButton>
+          <SkuButton btnType={'danger'}>Danger Button</SkuButton>
 
-          <SkuButton btnType={ButtonType.Link} href="www.bilibili.com">Link Button</SkuButton>
+          <SkuButton btnType={'link'} href="www.bilibili.com">Link Button</SkuButton>
 
-          <SkuButton btnType={ButtonType.Link} href="www.bilibili.com" disabled>Link Button disabled</SkuButton>
+          <SkuButton btnType={'link'} href="www.bilibili.com" disabled>Link Button disabled</SkuButton>
         </div>
         <br></br>
         <div>
@@ -35,12 +35,14 @@ function App() {
 
           <SkuAlert title='test Alert' description='test des' onColse={() => alert('close')}></SkuAlert>
 
-          <SkuAlert title='test Alert' type={AlertType.success}></SkuAlert>
+          <SkuAlert title='test Alert' type={'suc'}></SkuAlert>
 
-          <SkuAlert title='test Alert' type={AlertType.danger} closeble={false}></SkuAlert>
+          <SkuAlert title='test Alert' type={'dan'} closeble={false}></SkuAlert>
 
-          <SkuAlert title='test Alert' type={AlertType.warning}></SkuAlert>
+          <SkuAlert title='test Alert' type={'warn'}></SkuAlert>
         </div>
+
+        <div></div>
       </header>
     </div>
   );
