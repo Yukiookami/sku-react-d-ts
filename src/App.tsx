@@ -1,12 +1,14 @@
 /*
  * @Author: zxy
  * @Date: 2022-04-11 14:33:08
- * @LastEditTime: 2022-04-15 16:42:53
+ * @LastEditTime: 2022-04-20 17:39:26
  * @FilePath: /sku-react-d/src/App.tsx
  */
 import React from 'react';
 import SkuButton from './components/Button/button';
 import SkuAlert from './components/Alert/alert';
+import SkuMenu from './components/Menu/menu';
+import SkuMenuItem from './components/Menu/menuItem';
 
 function App() {
   return (
@@ -42,7 +44,21 @@ function App() {
           <SkuAlert title='test Alert' type={'warn'}></SkuAlert>
         </div>
 
-        <div></div>
+        <div>
+          <SkuMenu defaultIndex={0} onSelect={(index) => alert(index)}>
+            <SkuMenuItem index={0}> 
+              cool link
+            </SkuMenuItem>
+            
+            <SkuMenuItem index={1} disabled>  
+              cool link 2
+            </SkuMenuItem>
+
+            <SkuMenuItem index={2}> 
+              cool link 3
+            </SkuMenuItem>
+          </SkuMenu>
+        </div>
       </header>
     </div>
   );
