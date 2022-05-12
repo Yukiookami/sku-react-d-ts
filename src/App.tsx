@@ -1,7 +1,7 @@
 /*
  * @Author: zxy
  * @Date: 2022-04-11 14:33:08
- * @LastEditTime: 2022-04-20 17:39:26
+ * @LastEditTime: 2022-05-12 20:16:29
  * @FilePath: /sku-react-d/src/App.tsx
  */
 import React from 'react';
@@ -46,15 +46,29 @@ function App() {
 
         <div>
           <SkuMenu defaultIndex={0} onSelect={(index) => alert(index)}>
-            <SkuMenuItem index={0}> 
+            <SkuMenuItem> 
               cool link
             </SkuMenuItem>
             
-            <SkuMenuItem index={1} disabled>  
+            <SkuMenuItem disabled>  
               cool link 2
             </SkuMenuItem>
 
-            <SkuMenuItem index={2}> 
+            <SkuMenuItem> 
+              cool link 3
+            </SkuMenuItem>
+          </SkuMenu>
+
+          <SkuMenu defaultIndex={0} onSelect={(index) => alert(index)} mode="vertical">
+            <SkuMenuItem> 
+              cool link
+            </SkuMenuItem>
+            
+            <SkuMenuItem disabled>  
+              cool link 2
+            </SkuMenuItem>
+
+            <SkuMenuItem> 
               cool link 3
             </SkuMenuItem>
           </SkuMenu>
