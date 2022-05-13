@@ -1,7 +1,7 @@
 /*
  * @Author: zxy
  * @Date: 2022-04-15 16:22:36
- * @LastEditTime: 2022-05-12 20:19:41
+ * @LastEditTime: 2022-05-13 22:55:17
  * @FilePath: /sku-react-d/src/components/Menu/menu.tsx
  */
 import React, { createContext, useState } from "react";
@@ -32,7 +32,8 @@ const SkuMenu: React.FC<MenuProps> = (props) => {
   const [currentActive, setActive] = useState(defaultIndex)
 
   const classes = classNames('sku-menu', className, {
-    'menu-vertical': mode === 'vertical'
+    'menu-vertical': mode === 'vertical',
+    'menu-horizontal': mode !== 'vertical'
   })
 
   const handleClick = (index: number) => {
@@ -58,7 +59,7 @@ const SkuMenu: React.FC<MenuProps> = (props) => {
       const childElement = child as React.FunctionComponentElement<MenuItemProps>
       const { displayName } = childElement.type
 
-      if (displayName === 'MenuItem') {
+      if (displayName === 'MenuItem' || displayName === 'SubMenu') {
         return React.cloneElement(childElement, {
           index
         })

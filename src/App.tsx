@@ -1,7 +1,7 @@
 /*
  * @Author: zxy
  * @Date: 2022-04-11 14:33:08
- * @LastEditTime: 2022-05-12 20:16:29
+ * @LastEditTime: 2022-05-13 22:41:15
  * @FilePath: /sku-react-d/src/App.tsx
  */
 import React from 'react';
@@ -9,6 +9,7 @@ import SkuButton from './components/Button/button';
 import SkuAlert from './components/Alert/alert';
 import SkuMenu from './components/Menu/menu';
 import SkuMenuItem from './components/Menu/menuItem';
+import SkuSubMenu from './components/Menu/subMenu';
 
 function App() {
   return (
@@ -54,6 +55,20 @@ function App() {
               cool link 2
             </SkuMenuItem>
 
+            <SkuSubMenu title='dropdown'>
+              <SkuMenuItem> 
+                dropdown 1 
+              </SkuMenuItem>
+
+              <SkuMenuItem> 
+                dropdown 2
+              </SkuMenuItem>
+
+              <SkuMenuItem> 
+                dropdown 3 
+              </SkuMenuItem>
+            </SkuSubMenu>
+
             <SkuMenuItem> 
               cool link 3
             </SkuMenuItem>
@@ -67,6 +82,20 @@ function App() {
             <SkuMenuItem disabled>  
               cool link 2
             </SkuMenuItem>
+
+            <SkuSubMenu title='dropdown'>
+              <SkuMenuItem> 
+                dropdown 1 
+              </SkuMenuItem>
+
+              <SkuMenuItem> 
+                dropdown 2
+              </SkuMenuItem>
+
+              <SkuMenuItem> 
+                dropdown 3 
+              </SkuMenuItem>
+            </SkuSubMenu>
 
             <SkuMenuItem> 
               cool link 3
