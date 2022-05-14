@@ -1,7 +1,7 @@
 /*
  * @Author: zxy
  * @Date: 2022-04-15 16:37:46
- * @LastEditTime: 2022-05-14 20:59:50
+ * @LastEditTime: 2022-05-15 04:43:17
  * @FilePath: /sku-react-d/src/components/Menu/menuItem.tsx
  */
 import classNames from "classnames";
@@ -14,10 +14,12 @@ export interface MenuItemProps {
   disabled?: boolean;
   className?: string;
   style?: React.CSSProperties;
+  isSeleted?: boolean;
+  subSelect?: (index: string) => void;
 }
 
 const SkuMenuItem: React.FC<MenuItemProps> = (props) => {
-  const {index, disabled, className, style, children} = props
+  const {index, disabled, className, style, children, subSelect} = props
   const context = useContext(MenuContext)
 
   const classes = classNames('sku-menu-item', className, {
@@ -28,6 +30,9 @@ const SkuMenuItem: React.FC<MenuItemProps> = (props) => {
   const handleClick = () => {
     if (context.onSelect && !disabled && typeof index === 'string') {
       context.onSelect(index)
+      if (subSelect) {
+        subSelect(index)
+      }
     }
   }
 

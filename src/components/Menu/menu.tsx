@@ -1,7 +1,7 @@
 /*
  * @Author: zxy
  * @Date: 2022-04-15 16:22:36
- * @LastEditTime: 2022-05-14 20:16:05
+ * @LastEditTime: 2022-05-15 04:43:22
  * @FilePath: /sku-react-d/src/components/Menu/menu.tsx
  */
 import React, { createContext, useState } from "react";
@@ -24,7 +24,7 @@ interface IMenuContext {
   index: string;
   onSelect?: SelectCallback;
   mode?: MenuMode
-  defaultOpenSubMenus?: string[]
+  defaultOpenSubMenus?: string[];
 }
 
 export const MenuContext = createContext<IMenuContext>({index: '0'})
@@ -33,6 +33,7 @@ const SkuMenu: React.FC<MenuProps> = (props) => {
   const { defaultIndex, className, mode, style, onSelect, children, defaultOpenSubMenus } = props
 
   const [currentActive, setActive] = useState(defaultIndex)
+  const [isSeleted, setIsSeleted] = useState(false)
 
   const classes = classNames('sku-menu', className, {
     'menu-vertical': mode === 'vertical',
@@ -66,7 +67,16 @@ const SkuMenu: React.FC<MenuProps> = (props) => {
 
       if (displayName === 'MenuItem' || displayName === 'SubMenu') {
         return React.cloneElement(childElement, {
-          index: index.toString()
+          index: index.toString(),
+          isSeleted: isSeleted,
+          subSelect: (selIndex: string) => {
+            let nowIndex = index.toString()
+            if (selIndex.slice(0, 1) === nowIndex.slice(0, 1) && selIndex.indexOf('-') !== -1) {
+              setIsSeleted(true)
+            } else {
+              setIsSeleted(false)
+            }
+          }
         })
       } else {
         console.error("Warning: Menu has a child which is not a MenuItem component")

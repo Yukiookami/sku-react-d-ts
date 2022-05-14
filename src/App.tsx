@@ -1,7 +1,7 @@
 /*
  * @Author: zxy
  * @Date: 2022-04-11 14:33:08
- * @LastEditTime: 2022-05-14 20:58:16
+ * @LastEditTime: 2022-05-15 04:45:24
  * @FilePath: /sku-react-d/src/App.tsx
  */
 import React from 'react';
@@ -46,7 +46,7 @@ function App() {
         </div>
 
         <div>
-          <SkuMenu defaultIndex={'0'} onSelect={(index) => alert(index)}>
+          <SkuMenu defaultIndex={'0'} onSelect={(index) => console.log('click' + index)}>
             <SkuMenuItem> 
               cool link
             </SkuMenuItem>
@@ -74,7 +74,7 @@ function App() {
             </SkuMenuItem>
           </SkuMenu>
 
-          <SkuMenu defaultIndex={'0'} onSelect={(index) => alert(index)} mode="vertical" defaultOpenSubMenus={['2']}>
+          <SkuMenu defaultIndex={'0'} onSelect={(index) => console.log('click' + index)} mode="vertical" defaultOpenSubMenus={['2']}>
             <SkuMenuItem> 
               cool link
             </SkuMenuItem>

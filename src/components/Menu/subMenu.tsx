@@ -6,7 +6,9 @@ import { MenuItemProps } from "./menuItem";
 export interface SubMenuProps {
   index?: string,
   title: string,
-  className?: string
+  className?: string,
+  isSeleted?:boolean,
+  subSelect?: (index: string) => void
 }
 
 const SkuSubMenu: React.FC<SubMenuProps> = (props) => {
@@ -14,7 +16,9 @@ const SkuSubMenu: React.FC<SubMenuProps> = (props) => {
     index,
     title,
     className,
-    children
+    children,
+    isSeleted,
+    subSelect
   } = props
 
   const context = useContext(MenuContext)
@@ -25,7 +29,7 @@ const SkuSubMenu: React.FC<SubMenuProps> = (props) => {
   const [ menuOpen, setMenuOpen ] = useState(isOpen)
 
   const classes = classNames('sku-menu-item submenu-item', className, {
-    'is-active': context.index === index
+    'is-active': context.index === index || isSeleted
   })
 
   const subMenuClasses = classNames(
@@ -64,7 +68,12 @@ const SkuSubMenu: React.FC<SubMenuProps> = (props) => {
 
       if (childELement.type.displayName === 'MenuItem') {
         return React.cloneElement(childELement, {
-          index: `${index}-${i}`
+          index: `${index}-${i}`,
+          subSelect: (index: string) => {
+            if (subSelect) {
+              subSelect(index)
+            }
+          }
         })
       } else {
         console.error("Warning: Menu has a child which is not a MenuItem component")
