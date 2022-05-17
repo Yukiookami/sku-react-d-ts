@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import classNames from "classnames";
 import { MenuContext } from "./menu";
 import { MenuItemProps } from "./menuItem";
+import SkuIcon from "../Icon/Icon";
 
 export interface SubMenuProps {
   index?: string,
@@ -29,7 +30,9 @@ const SkuSubMenu: React.FC<SubMenuProps> = (props) => {
   const [ menuOpen, setMenuOpen ] = useState(isOpen)
 
   const classes = classNames('sku-menu-item submenu-item', className, {
-    'is-active': context.index === index || isSeleted
+    'is-active': context.index === index || isSeleted,
+    'is-opened': menuOpen,
+    'is-vertical': context.mode === 'vertical'
   })
 
   const subMenuClasses = classNames(
@@ -91,6 +94,8 @@ const SkuSubMenu: React.FC<SubMenuProps> = (props) => {
     <li key={index} className={classes} {...hoverEvents}>
       <div className="submenu-title" {...clickEvents}>
         {title}
+
+        <SkuIcon icon="angle-down" className="arrow-icon"/>
       </div>
 
       {renderChildren()}

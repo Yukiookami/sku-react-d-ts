@@ -49,7 +49,7 @@
       transform: rotate(0deg) !important;
     }
   }
-  .is-vertical.is-opened {
+  .is-vertical>.is-opened {
     .arrow-icon {
       transform: rotate(180deg) !important;
     }

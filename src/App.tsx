@@ -1,7 +1,7 @@
 /*
  * @Author: zxy
  * @Date: 2022-04-11 14:33:08
- * @LastEditTime: 2022-05-15 04:45:24
+ * @LastEditTime: 2022-05-17 17:27:53
  * @FilePath: /sku-react-d/src/App.tsx
  */
 import React from 'react';
@@ -10,6 +10,13 @@ import SkuAlert from './components/Alert/alert';
 import SkuMenu from './components/Menu/menu';
 import SkuMenuItem from './components/Menu/menuItem';
 import SkuSubMenu from './components/Menu/subMenu';
+
+// icon引用
+import SkuIcon from './components/Icon/Icon';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+library.add(fas)
+// icon引用
 
 function App() {
   return (
@@ -101,6 +108,8 @@ function App() {
               cool link 3
             </SkuMenuItem>
           </SkuMenu>
+
+          <SkuIcon icon="coffee" theme='danger' size='10x'></SkuIcon>
         </div>
       </header>
     </div>
