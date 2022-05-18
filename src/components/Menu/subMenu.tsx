@@ -1,8 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import classNames from "classnames";
 import { MenuContext } from "./menu";
 import { MenuItemProps } from "./menuItem";
 import SkuIcon from "../Icon/Icon";
+import  { CSSTransition } from 'react-transition-group'
 
 export interface SubMenuProps {
   index?: string,
@@ -28,6 +29,9 @@ const SkuSubMenu: React.FC<SubMenuProps> = (props) => {
   const isOpen = (index && context.mode === 'vertical' ? openSubMenus?.includes(index) : false)
 
   const [ menuOpen, setMenuOpen ] = useState(isOpen)
+
+  // 解决组件库内部报错
+  const CssTransitionNodeRef = useRef(null)
 
   const classes = classNames('sku-menu-item submenu-item', className, {
     'is-active': context.index === index || isSeleted,
@@ -84,9 +88,17 @@ const SkuSubMenu: React.FC<SubMenuProps> = (props) => {
     })
 
     return (
-      <ul className={subMenuClasses}>
-        {childrenComponent}
-      </ul>
+      <CSSTransition 
+      nodeRef={CssTransitionNodeRef}
+      in={menuOpen} 
+      timeout={300} 
+      classNames='zoom-in-top'
+      unmountOnExit
+      appear>
+        <ul ref={CssTransitionNodeRef} className={subMenuClasses}>
+          {childrenComponent}
+        </ul>
+      </CSSTransition>
     )
   }
 

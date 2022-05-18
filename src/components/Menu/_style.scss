@@ -6,13 +6,10 @@
   list-style: none;
   border-bottom: $menu-border-width solid $menu-border-color;
   box-shadow: $menu-box-shadow;
-
   >.sku-menu-item {
     padding: $menu-item-padding-y $menu-item-padding-x;
     cursor: pointer;
     transition: $menu-transition;
-    // border-bottom: $menu-item-active-border-width solid transparent;
-
     &:hover, &:focus {
       text-decoration: none;
     }
@@ -26,10 +23,8 @@
       border-bottom: $menu-item-active-border-width solid $menu-item-active-color;
     }
   }
-
   .submenu-item {
     position: relative;
-    // border-bottom: $menu-item-active-border-width solid transparent;
     .submenu-title {
       display: flex;
       align-items: center;
@@ -49,20 +44,17 @@
       transform: rotate(0deg) !important;
     }
   }
-  .is-vertical>.is-opened {
+  .is-vertical.is-opened {
     .arrow-icon {
       transform: rotate(180deg) !important;
     }
   }
-
   .sku-submenu {
-    opacity: 0;
+    //display: none;
     list-style:none;
     padding-left: 0;
     white-space: nowrap;
-    z-index: -1;
-    transition: $menu-transition;
-
+    //transition: $menu-transition;
     .sku-menu-item {
       padding: $menu-item-padding-y $menu-item-padding-x;
       cursor: pointer;
@@ -73,13 +65,10 @@
       }
     }
   }
-
-  .menu-open {
-    opacity: 1;
-    z-index: 0;
+  .sku-submenu.menu-opened {
+    //display: block;
   }
 }
-
 .menu-horizontal {
   >.sku-menu-item {
     border-bottom: $menu-item-active-border-width solid transparent;
@@ -88,29 +77,17 @@
     position: absolute;
     background: $white;
     z-index: 100;
-    top: calc(100% + 5px);
-    left: -10px;
+    top: calc(100% + 8px);
+    left: 0;
     border: $menu-border-width solid $menu-border-color;
     box-shadow: $submenu-box-shadow;
   }
 }
-
 .menu-vertical {
   flex-direction: column;
   border-bottom: 0px;
   margin: 10px 20px;
   border-right: $menu-border-width solid $menu-border-color;
-
-  .sku-submenu {
-    max-height: 0;
-    overflow-y: scroll;
-    overflow-x: hidden;
-  }
-
-  .menu-open {
-    max-height: 99999px;
-  }
-
   >.sku-menu-item {
     border-left: $menu-item-active-border-width solid transparent;
     &.is-active, &:hover {
