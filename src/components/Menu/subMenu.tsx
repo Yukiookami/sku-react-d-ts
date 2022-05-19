@@ -3,7 +3,8 @@ import classNames from "classnames";
 import { MenuContext } from "./menu";
 import { MenuItemProps } from "./menuItem";
 import SkuIcon from "../Icon/Icon";
-import  { CSSTransition } from 'react-transition-group'
+
+import Transition from "../Transition/transition";
 
 export interface SubMenuProps {
   index?: string,
@@ -88,17 +89,15 @@ const SkuSubMenu: React.FC<SubMenuProps> = (props) => {
     })
 
     return (
-      <CSSTransition 
+      <Transition 
       nodeRef={CssTransitionNodeRef}
       in={menuOpen} 
       timeout={300} 
-      classNames='zoom-in-top'
-      unmountOnExit
-      appear>
+      animation='zoom-in-top'>
         <ul ref={CssTransitionNodeRef} className={subMenuClasses}>
           {childrenComponent}
         </ul>
-      </CSSTransition>
+      </Transition>
     )
   }
 

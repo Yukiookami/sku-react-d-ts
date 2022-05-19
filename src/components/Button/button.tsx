@@ -1,14 +1,14 @@
 /*
  * @Author: zxy
  * @Date: 2022-04-12 13:48:03
- * @LastEditTime: 2022-04-15 16:31:35
+ * @LastEditTime: 2022-05-18 19:01:28
  * @FilePath: /sku-react-d/src/components/Button/button.tsx
  */
 import React from "react";
 import classNames from 'classnames'
 
-type ButtonSize = 'lg' | 'sm'
-type ButtonType = 'primary' | 'default' | 'danger' | 'link'
+export type ButtonSize = 'lg' | 'sm'
+export type ButtonType = 'primary' | 'default' | 'danger' | 'link'
 
 interface BaseBttonProps {
   className?: string,
