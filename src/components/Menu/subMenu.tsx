@@ -2,7 +2,7 @@ import React, { useContext, useRef, useState } from "react";
 import classNames from "classnames";
 import { MenuContext } from "./menu";
 import { MenuItemProps } from "./menuItem";
-import SkuIcon from "../Icon/Icon";
+import {SkuIcon} from "../Icon/Icon";
 
 import Transition from "../Transition/transition";
 
@@ -14,7 +14,7 @@ export interface SubMenuProps {
   subSelect?: (index: string) => void
 }
 
-const SkuSubMenu: React.FC<SubMenuProps> = (props) => {
+export const SkuSubMenu: React.FC<SubMenuProps> = (props) => {
   const { 
     index,
     title,
@@ -115,5 +115,3 @@ const SkuSubMenu: React.FC<SubMenuProps> = (props) => {
 }
 
 SkuSubMenu.displayName = 'SubMenu'
-
-export default SkuSubMenu

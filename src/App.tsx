@@ -1,18 +1,18 @@
 /*
  * @Author: zxy
  * @Date: 2022-04-11 14:33:08
- * @LastEditTime: 2022-05-17 17:27:53
+ * @LastEditTime: 2022-05-21 20:15:16
  * @FilePath: /sku-react-d/src/App.tsx
  */
 import React from 'react';
-import SkuButton from './components/Button/button';
-import SkuAlert from './components/Alert/alert';
-import SkuMenu from './components/Menu/menu';
-import SkuMenuItem from './components/Menu/menuItem';
-import SkuSubMenu from './components/Menu/subMenu';
+import {SkuButton} from './components/Button/button';
+import {SkuAlert} from './components/Alert/alert';
+import {SkuMenu} from './components/Menu/menu';
+import {SkuMenuItem} from './components/Menu/menuItem';
+import {SkuSubMenu} from './components/Menu/subMenu';
 
 // icon引用
-import SkuIcon from './components/Icon/Icon';
+import { SkuIcon } from './components/Icon/Icon';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 library.add(fas)
@@ -45,11 +45,11 @@ function App() {
 
           <SkuAlert title='test Alert' description='test des' onColse={() => alert('close')}></SkuAlert>
 
-          <SkuAlert title='test Alert' type={'suc'}></SkuAlert>
+          <SkuAlert title='test Alert' type={'success'}></SkuAlert>
 
-          <SkuAlert title='test Alert' type={'dan'} closeble={false}></SkuAlert>
+          <SkuAlert title='test Alert' type={'error'} closeble={false}></SkuAlert>
 
-          <SkuAlert title='test Alert' type={'warn'}></SkuAlert>
+          <SkuAlert title='test Alert' type={'warning'}></SkuAlert>
         </div>
 
         <div>

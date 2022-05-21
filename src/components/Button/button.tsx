@@ -1,17 +1,17 @@
 /*
  * @Author: zxy
  * @Date: 2022-04-12 13:48:03
- * @LastEditTime: 2022-05-18 19:01:28
+ * @LastEditTime: 2022-05-21 17:55:11
  * @FilePath: /sku-react-d/src/components/Button/button.tsx
  */
 import React from "react";
 import classNames from 'classnames'
 
-export type ButtonSize = 'lg' | 'sm'
+export type ButtonSize = 'lg' | 'sm' | 'mid'
 export type ButtonType = 'primary' | 'default' | 'danger' | 'link'
 
 interface BaseBttonProps {
-  className?: string,
+  className?: string;
   disabled?: boolean;
   size?: ButtonSize;
   btnType?: ButtonType;
@@ -24,7 +24,10 @@ type NativeButtonProps = React.ButtonHTMLAttributes<HTMLElement> & BaseBttonProp
 type AnchorButtonProps = React.AnchorHTMLAttributes<HTMLElement> & BaseBttonProps
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
 
-const SkuButton: React.FC<ButtonProps> = (props) => {
+/**
+ * Commonly used button.
+ */
+export const SkuButton: React.FC<ButtonProps> = (props) => {
   const { 
     btnType,
     className,
@@ -63,7 +66,6 @@ const SkuButton: React.FC<ButtonProps> = (props) => {
 
 SkuButton.defaultProps = {
   disabled: false,
-  btnType: 'default'
+  btnType: 'default',
+  size: 'mid'
 }
-
-export default SkuButton

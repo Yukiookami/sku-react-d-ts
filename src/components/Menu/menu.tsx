@@ -1,7 +1,7 @@
 /*
  * @Author: zxy
  * @Date: 2022-04-15 16:22:36
- * @LastEditTime: 2022-05-15 04:43:22
+ * @LastEditTime: 2022-05-21 20:15:10
  * @FilePath: /sku-react-d/src/components/Menu/menu.tsx
  */
 import React, { createContext, useState } from "react";
@@ -29,7 +29,7 @@ interface IMenuContext {
 
 export const MenuContext = createContext<IMenuContext>({index: '0'})
 
-const SkuMenu: React.FC<MenuProps> = (props) => {
+export const SkuMenu: React.FC<MenuProps> = (props) => {
   const { defaultIndex, className, mode, style, onSelect, children, defaultOpenSubMenus } = props
 
   const [currentActive, setActive] = useState(defaultIndex)
@@ -98,5 +98,3 @@ SkuMenu.defaultProps = {
   mode: 'horizontal',
   defaultOpenSubMenus: []
 }
-
-export default SkuMenu

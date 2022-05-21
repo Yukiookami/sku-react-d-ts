@@ -60,18 +60,18 @@
   display: none;
 }
 
-.sku-alert-suc {
+.sku-alert-success {
   @include alert-style($white, $success, darken($success, 5%))
 }
 
-.sku-alert-def {
+.sku-alert-default {
   @include alert-style($white, $primary, darken($primary, 5%))
 }
 
-.sku-alert-dan {
+.sku-alert-error {
   @include alert-style($white, $danger, darken($danger, 5%))
 }
 
-.sku-alert-warn {
+.sku-alert-warning {
   @include alert-style($white, $warning, darken($warning, 5%))
 }

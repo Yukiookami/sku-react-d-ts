@@ -8,7 +8,19 @@ export interface IconProps extends FontAwesomeIconProps {
   theme?: ThemeProps
 }
 
-const SkuIcon: React.FC<IconProps> = (props) => {
+/**
+ * Icon component based on fortawesome
+ * 
+ * use component in React: 
+ * 
+ * import { SkuIcon } from './components/Icon/Icon'; <br>
+ * import { library } from '@fortawesome/fontawesome-svg-core';<br>
+ * import { fas } from '@fortawesome/free-solid-svg-icons';<br>
+ * library.add(fas)
+ * 
+ * doc: https://fontawesome.com/v6/icons/angle-down?s=solid
+ */
+export const SkuIcon: React.FC<IconProps> = (props) => {
   const { className, theme, ...restPropes } = props
   const classes = classNames('sku-icon', className, {
     [`icon-${theme}`]: theme
@@ -18,5 +30,3 @@ const SkuIcon: React.FC<IconProps> = (props) => {
     <FontAwesomeIcon className={classes} {...restPropes}></FontAwesomeIcon>
   )
 }
-
-export default SkuIcon

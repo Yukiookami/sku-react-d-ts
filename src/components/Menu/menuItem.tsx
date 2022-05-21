@@ -1,7 +1,7 @@
 /*
  * @Author: zxy
  * @Date: 2022-04-15 16:37:46
- * @LastEditTime: 2022-05-15 04:43:17
+ * @LastEditTime: 2022-05-21 20:16:15
  * @FilePath: /sku-react-d/src/components/Menu/menuItem.tsx
  */
 import classNames from "classnames";
@@ -18,7 +18,7 @@ export interface MenuItemProps {
   subSelect?: (index: string) => void;
 }
 
-const SkuMenuItem: React.FC<MenuItemProps> = (props) => {
+export const SkuMenuItem: React.FC<MenuItemProps> = (props) => {
   const {index, disabled, className, style, children, subSelect} = props
   const context = useContext(MenuContext)
 
@@ -44,5 +44,3 @@ const SkuMenuItem: React.FC<MenuItemProps> = (props) => {
 }
 
 SkuMenuItem.displayName = 'MenuItem'
-
-export default SkuMenuItem

@@ -1,24 +1,30 @@
 /*
  * @Author: zxy
  * @Date: 2022-04-13 14:59:40
- * @LastEditTime: 2022-04-15 16:33:44
+ * @LastEditTime: 2022-05-21 18:15:05
  * @FilePath: /sku-react-d/src/components/Alert/alert.tsx
  */
 import React, { useState } from "react";
 import classNames from "classnames";
 
-type AlertType = 'suc' | 'def' | 'dan' | 'warn'
+type AlertType = 'success' | 'default' | 'error' | 'warning'
 
 interface BaseAlertProps {
   title: string,
   description?: string,
   type?: AlertType,
   onColse?: () => void,
+  /**
+   * Can it be closed
+   */
   closeble?: boolean,
   className?: string 
 }
 
-const SkuAlert: React.FC<BaseAlertProps> = (props) => {
+/**
+ * Displays important alert messages.
+ */
+export const SkuAlert: React.FC<BaseAlertProps> = (props) => {
   const [hide, setHide] = useState(false)
   const [relHide, setRelHide] = useState(false)
 
@@ -69,8 +75,6 @@ const SkuAlert: React.FC<BaseAlertProps> = (props) => {
 }
 
 SkuAlert.defaultProps = {
-  type: 'def',
+  type: 'default',
   closeble: true
 }
-
-export default SkuAlert
