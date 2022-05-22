@@ -1,10 +1,16 @@
+/*
+ * @Author: zxy
+ * @Date: 2022-05-21 17:58:58
+ * @LastEditTime: 2022-05-22 21:36:56
+ * @FilePath: /sku-react-d/src/components/Alert/alert.stories.tsx
+ */
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import { SkuAlert } from './alert'
 
 export default {
-  title: 'Alert',
+  title: 'Feedback/Alert',
   component: SkuAlert,
 } as ComponentMeta<typeof SkuAlert>;
 
