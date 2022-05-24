@@ -1,7 +1,7 @@
 /*
  * @Author: zxy
  * @Date: 2022-04-11 14:33:08
- * @LastEditTime: 2022-05-21 20:15:16
+ * @LastEditTime: 2022-05-24 13:16:27
  * @FilePath: /sku-react-d/src/App.tsx
  */
 import React from 'react';
@@ -17,6 +17,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 library.add(fas)
 // icon引用
+
 
 function App() {
   return (
