@@ -1,7 +1,7 @@
 /*
  * @Author: zxy
  * @Date: 2022-04-11 14:33:08
- * @LastEditTime: 2022-05-24 13:16:27
+ * @LastEditTime: 2022-05-27 01:18:22
  * @FilePath: /sku-react-d/src/App.tsx
  */
 import React from 'react';
@@ -10,6 +10,7 @@ import {SkuAlert} from './components/Alert/alert';
 import {SkuMenu} from './components/Menu/menu';
 import {SkuMenuItem} from './components/Menu/menuItem';
 import {SkuSubMenu} from './components/Menu/subMenu';
+import { SkuUpload } from './components/Upload/upload';
 
 // icon引用
 import { SkuIcon } from './components/Icon/Icon';
@@ -17,7 +18,6 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 library.add(fas)
 // icon引用
-
 
 function App() {
   return (
@@ -111,6 +111,8 @@ function App() {
           </SkuMenu>
 
           <SkuIcon icon="coffee" theme='danger' size='10x'></SkuIcon>
+
+          <SkuUpload action='https://www.mocky.io/v2/5cc8019d300000980a055e76'></SkuUpload>
         </div>
       </header>
     </div>

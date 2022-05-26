@@ -1,7 +1,7 @@
 /*
  * @Author: zxy
  * @Date: 2022-05-23 15:21:51
- * @LastEditTime: 2022-05-24 19:50:52
+ * @LastEditTime: 2022-05-24 19:54:50
  * @FilePath: /sku-react-d/src/components/AutoComplete/autoComplete.stories.tsx
  */
 import { ComponentStory, ComponentMeta } from '@storybook/react'
@@ -19,9 +19,10 @@ const Template: ComponentStory<typeof SkuAutoComplete> = (args) => {
     const { items } = await res.json();
     return items.slice(0, 10).map((item: any) => ({ value: item.login, ...item }));
   }
-
+  
   return (
-    <SkuAutoComplete fetchSuggestions={handleFetch}></SkuAutoComplete>
+    <SkuAutoComplete 
+    fetchSuggestions={handleFetch}></SkuAutoComplete>
   )
 };
 
