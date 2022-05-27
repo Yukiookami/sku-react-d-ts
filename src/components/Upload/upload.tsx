@@ -1,7 +1,7 @@
 /*
  * @Author: zxy
  * @Date: 2022-05-27 00:49:25
- * @LastEditTime: 2022-05-27 23:37:15
+ * @LastEditTime: 2022-05-28 01:18:07
  * @FilePath: /sku-react-d/src/components/Upload/upload.tsx
  */
 import React, { ChangeEvent, useRef, useState } from "react";
@@ -9,6 +9,7 @@ import axios from "axios";
 
 import { SkuButton } from "../Button/button";
 import { SkuUploadList } from "./uploadList";
+import { SkuDragger } from './dragger'
 
 export interface UploadProps {
   action: string;
@@ -26,6 +27,15 @@ export interface UploadProps {
   onError?: (err: any, file: File) => void;
   // 变化
   onChange?: (file: File) => void;
+  headers?: {[key: string]: any};
+  name?: string;
+  data?: {[key: string]: any};
+  // token
+  withCredentials?: boolean;
+  accept?: string;
+  multiple?: boolean;
+  // 是否可以拖拽
+  drag?: boolean;
 }
 
 export type UploadFileStatus = 'ready' | 'uploading' | 'success' | 'error'
@@ -50,7 +60,15 @@ export const SkuUpload: React.FC<UploadProps> = (props) => {
     onSuccess,
     onError,
     onChange,
-    onRemove
+    onRemove,
+    headers,
+    name,
+    data,
+    withCredentials,
+    accept,
+    multiple,
+    drag,
+    children
   } = props
 
   const fileInput = useRef<HTMLInputElement>(null)
@@ -153,16 +171,24 @@ export const SkuUpload: React.FC<UploadProps> = (props) => {
       raw: file
     }
 
-    setFileList([_file, ...fileList])
+    setFileList(prevList => [_file, ...prevList])
 
     const formData = new FormData()
-      formData.append(file.name, file)
+      formData.append(name || 'file', file)
+
+      if (data) {
+        Object.keys(data).forEach(key => {
+          formData.append(key, data[key])
+        })
+      }
 
       try {
         const res = await axios.post(action, formData, {
           headers: {
-            'Content-Type': 'multipart/form-data'
+            'Content-Type': 'multipart/form-data',
+            ...headers
           },
+          withCredentials,
           onUploadProgress: (e) => {
             let percentage = Math.round((e.loaded * 100) / e.total) || 0;
 
@@ -197,18 +223,35 @@ export const SkuUpload: React.FC<UploadProps> = (props) => {
 
   return (
     <div className="sku-upload-compent">
-      <SkuButton btnType="primary"
-      onClick={handleClick}>Upload File</SkuButton>
-
-      <input
-      className="sku-file-input"
-      style={{display: 'none'}}
-      onChange={handleFileChange}
-      ref={fileInput}
-      type="file" />
+      <div className="sku-upload-input"
+        style={{display: 'inline-block'}}
+        onClick={handleClick}>
+          {drag ? 
+            <SkuDragger onFile={(files) => {uploadFiles(files)}}>
+              {children}
+            </SkuDragger>:
+            <SkuButton btnType="primary"
+            onClick={handleClick}>{ children }</SkuButton>
+          }
+        <input
+          className="sku-file-input"
+          style={{display: 'none'}}
+          ref={fileInput}
+          onChange={handleFileChange}
+          type="file"
+          accept={accept}
+          multiple={multiple}
+        />
+      </div>
 
       <SkuUploadList fileList={fileList}
       onRemove={handleRemove}></SkuUploadList>
     </div>
   )
+}
+
+SkuUpload.defaultProps = {
+  drag: false,
+  multiple: false,
+  withCredentials: false
 }
