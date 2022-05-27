@@ -1,7 +1,7 @@
 /*
  * @Author: zxy
  * @Date: 2022-05-27 00:49:25
- * @LastEditTime: 2022-05-27 01:10:37
+ * @LastEditTime: 2022-05-27 11:22:07
  * @FilePath: /sku-react-d/src/components/Upload/upload.tsx
  */
 import React, { ChangeEvent, useRef } from "react";
@@ -11,20 +11,26 @@ import { SkuButton } from "../Button/button";
 
 export interface UploadProps {
   action: string,
+  // 上传之前
+  beforeUpload?: (file: File) => boolean | Promise<File>;
   // 上传中
-  onProgress?: (percentage: number, file: File) => void,
+  onProgress?: (percentage: number, file: File) => void;
   // 上传成功
-  onSuccess?: (data: any, file: File) => void,
+  onSuccess?: (data: any, file: File) => void;
   // 上传失败
-  onError?: (err: any, file: File) => void
+  onError?: (err: any, file: File) => void;
+  // 变化
+  onChange?: (file: File) => void;
 }
 
 export const SkuUpload: React.FC<UploadProps> = (props) => {
   const {
     action,
+    beforeUpload,
     onProgress,
     onSuccess,
-    onError
+    onError,
+    onChange
   } = props
 
   const fileInput = useRef<HTMLInputElement>(null)
@@ -62,7 +68,28 @@ export const SkuUpload: React.FC<UploadProps> = (props) => {
     let postFiles = Array.from(files)
 
     postFiles.forEach(async file => {
-      const formData = new FormData()
+      if (!beforeUpload) {
+        postReq(file)
+      } else {
+        const res = beforeUpload(file)
+
+        if (res && res instanceof Promise) {
+          const processedFile = await res
+          postReq(processedFile)
+        } else if (res !== false) {
+          postReq(file)
+        }
+      }
+    })
+  }
+
+  /**
+   * @description: 文件上传
+   * @param {File} file
+   * @return {*}
+   */  
+  const postReq = async (file: File) => {
+    const formData = new FormData()
       formData.append(file.name, file)
 
       const res = await axios.post(action, formData, {
@@ -83,13 +110,20 @@ export const SkuUpload: React.FC<UploadProps> = (props) => {
       try {
         if (onSuccess) {
           onSuccess(res.data, file)
+
+          if (onChange) {
+            onChange(file)
+          }
         }
       } catch (err) {
         if (onError) {
           onError(err, file)
         }
+
+        if (onChange) {
+          onChange(file)
+        }
       }
-    })
   }
 
   return (
