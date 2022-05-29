@@ -4,7 +4,7 @@ import { MenuContext } from "./menu";
 import { MenuItemProps } from "./menuItem";
 import {SkuIcon} from "../Icon/Icon";
 
-import Transition from "../Transition/transition";
+import { SkuTransition } from "../Transition/transition";
 
 export interface SubMenuProps {
   index?: string,
@@ -89,7 +89,7 @@ export const SkuSubMenu: React.FC<SubMenuProps> = (props) => {
     })
 
     return (
-      <Transition 
+      <SkuTransition 
       nodeRef={CssTransitionNodeRef}
       in={menuOpen} 
       timeout={300} 
@@ -97,7 +97,7 @@ export const SkuSubMenu: React.FC<SubMenuProps> = (props) => {
         <ul ref={CssTransitionNodeRef} className={subMenuClasses}>
           {childrenComponent}
         </ul>
-      </Transition>
+      </SkuTransition>
     )
   }
 

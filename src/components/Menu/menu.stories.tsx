@@ -1,15 +1,13 @@
 /*
  * @Author: zxy
  * @Date: 2022-05-21 20:14:36
- * @LastEditTime: 2022-05-22 22:50:37
+ * @LastEditTime: 2022-05-29 15:45:33
  * @FilePath: /sku-react-d/src/components/Menu/menu.stories.tsx
  */
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { SkuMenu } from './menu'
-import { SkuMenuItem } from './menuItem';
-import { SkuSubMenu } from './subMenu';
+import { default as SkuMenu } from './index'
 
 export default {
   title: 'Navigation/Menu',
@@ -24,31 +22,31 @@ const Template: ComponentStory<typeof SkuMenu> = (args) => {
     style={style}
     defaultOpenSubMenus={defaultOpenSubMenus}
     defaultIndex={defaultIndex} onSelect={onSelect}>
-      <SkuMenuItem> 
+      <SkuMenu.Item> 
         cool link
-      </SkuMenuItem>
+      </SkuMenu.Item>
       
-      <SkuMenuItem>  
+      <SkuMenu.Item>  
         cool link 2
-      </SkuMenuItem>
+      </SkuMenu.Item>
 
-      <SkuSubMenu title='dropdown'>
-        <SkuMenuItem> 
+      <SkuMenu.SubMenu title='dropdown'>
+        <SkuMenu.Item> 
           dropdown 1 
-        </SkuMenuItem>
+        </SkuMenu.Item>
 
-        <SkuMenuItem> 
+        <SkuMenu.Item> 
           dropdown 2
-        </SkuMenuItem>
+        </SkuMenu.Item>
 
-        <SkuMenuItem> 
+        <SkuMenu.Item> 
           dropdown 3 
-        </SkuMenuItem>
-      </SkuSubMenu>
+        </SkuMenu.Item>
+      </SkuMenu.SubMenu>
 
-      <SkuMenuItem> 
+      <SkuMenu.Item> 
         cool link 3
-      </SkuMenuItem>
+      </SkuMenu.Item>
     </SkuMenu>
   )
 }

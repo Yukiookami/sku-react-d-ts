@@ -1,7 +1,7 @@
 /*
  * @Author: zxy
  * @Date: 2022-05-23 14:33:35
- * @LastEditTime: 2022-05-24 19:45:38
+ * @LastEditTime: 2022-05-29 16:40:43
  * @FilePath: /sku-react-d/src/components/AutoComplete/autoComplete.tsx
  */
 import React, { ChangeEvent, ReactElement, useEffect, useRef, useState } from "react";
@@ -10,7 +10,7 @@ import { SkuIcon } from '../Icon/Icon';
 import useDebounce from '../../hooks/useDebounce';
 import classNames from 'classnames';
 import useClickOutside from '../../hooks/useClickOutside';
-import Transition from "../Transition/transition";
+import { SkuTransition } from "../Transition/transition";
 
 // 让用户可以自由传入类型
 interface DataSourceObject {
@@ -117,7 +117,7 @@ export const SkuAutoComplete: React.FC<AutoCompleteProps> = (props) => {
    */  
   const generateDropdown = () => {
     return (
-      <Transition
+      <SkuTransition
         in={showDropdown || loading}
         animation="zoom-in-top"
         timeout={300}
@@ -140,7 +140,7 @@ export const SkuAutoComplete: React.FC<AutoCompleteProps> = (props) => {
             )
           })}
         </ul>
-      </Transition>
+      </SkuTransition>
     )
   }
 

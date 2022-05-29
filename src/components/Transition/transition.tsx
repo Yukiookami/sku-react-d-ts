@@ -1,3 +1,9 @@
+/*
+ * @Author: zxy
+ * @Date: 2022-05-18 18:39:03
+ * @LastEditTime: 2022-05-29 16:40:15
+ * @FilePath: /sku-react-d/src/components/Transition/transition.tsx
+ */
 import React from "react";
 import { CSSTransition } from "react-transition-group";
 import { CSSTransitionProps } from "react-transition-group/CSSTransition";
@@ -9,7 +15,7 @@ type TransitionProps = CSSTransitionProps & {
   wrapper? : boolean,
 }
 
-const Transition: React.FC<TransitionProps> = (props) => {
+export const SkuTransition: React.FC<TransitionProps> = (props) => {
   const {
     children,
     classNames,
@@ -27,9 +33,7 @@ const Transition: React.FC<TransitionProps> = (props) => {
   )
 }
 
-Transition.defaultProps = {
+SkuTransition.defaultProps = {
   unmountOnExit: true,
   appear: true,
 }
-
-export default Transition
