@@ -1,7 +1,7 @@
 /*
  * @Author: zxy
  * @Date: 2022-05-23 14:33:35
- * @LastEditTime: 2022-05-29 16:40:43
+ * @LastEditTime: 2022-05-29 19:35:43
  * @FilePath: /sku-react-d/src/components/AutoComplete/autoComplete.tsx
  */
 import React, { ChangeEvent, ReactElement, useEffect, useRef, useState } from "react";
@@ -182,12 +182,7 @@ export const SkuAutoComplete: React.FC<AutoCompleteProps> = (props) => {
       onKeyDown={handleKeyDown}
       {...restPorps}
       ></SkuInput>
-      { loading &&
-            <div className="suggstions-loading-icon">
-              <SkuIcon icon="spinner" spin/>
-            </div>
-          }
-      {suggestions.length > 0 && generateDropdown()}
+      {generateDropdown()}
     </div>
   )
 }
