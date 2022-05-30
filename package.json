@@ -1,12 +1,26 @@
 {
   "name": "sku-react-d",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.5",
+  "private": false,
   "description": "React components library",
   "author": "Zouxinyu",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "license": "MIT",
+  "keywords": [
+    "Component",
+    "UI",
+    "React"
+  ],
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Yukiookami/sku-react-d-ts"
+  },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-regular-svg-icons": "^6.1.1",
@@ -45,7 +59,8 @@
     "build-ts": "tsc -p tsconfig.build.json",
     "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "publish": "npm run build"
   },
   "eslintConfig": {
     "extends": [

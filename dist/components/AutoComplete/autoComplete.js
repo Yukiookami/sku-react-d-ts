@@ -59,7 +59,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 /*
  * @Author: zxy
  * @Date: 2022-05-23 14:33:35
- * @LastEditTime: 2022-05-29 16:40:43
+ * @LastEditTime: 2022-05-29 19:35:43
  * @FilePath: /sku-react-d/src/components/AutoComplete/autoComplete.tsx
  */
 import React, { useEffect, useRef, useState } from "react";
@@ -194,8 +194,5 @@ export var SkuAutoComplete = function (props) {
     };
     return (React.createElement("div", { className: "sku-auto-complete", ref: compontentRef },
         React.createElement(SkuInput, __assign({ value: inputValue, onChange: handleChange, onKeyDown: handleKeyDown }, restPorps)),
-        loading &&
-            React.createElement("div", { className: "suggstions-loading-icon" },
-                React.createElement(SkuIcon, { icon: "spinner", spin: true })),
-        suggestions.length > 0 && generateDropdown()));
+        generateDropdown()));
 };

@@ -20,18 +20,17 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
+/*
+ * @Author: zxy
+ * @Date: 2022-05-16 19:09:05
+ * @LastEditTime: 2022-05-29 19:30:27
+ * @FilePath: /sku-react-d/src/components/Icon/Icon.tsx
+ */
 import React from "react";
 import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 /**
  * Icon component based on fortawesome
- *
- * use component in React:
- *
- * import { SkuIcon } from './components/Icon/Icon'; <br>
- * import { library } from '@fortawesome/fontawesome-svg-core';<br>
- * import { fas } from '@fortawesome/free-solid-svg-icons';<br>
- * library.add(fas)
  *
  * doc: https://fontawesome.com/v6/icons/angle-down?s=solid
  */
